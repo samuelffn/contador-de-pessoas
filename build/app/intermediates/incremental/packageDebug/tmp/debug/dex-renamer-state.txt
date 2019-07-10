@@ -1,4 +1,4 @@
-#Tue Jun 11 23:34:23 BRT 2019
+#Tue Jul 09 22:16:56 BRT 2019
 base.0=/Users/samuelfranca/Documents/Estudos/projetos_flutter/contador_de_pessoas/build/app/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex
