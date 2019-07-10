@@ -8,11 +8,11 @@ void main() {
 
       //CRIANDO O LAYOUT DA APLICAÇÃO
 
-      home: Home())); //Aqui em home passamos o nosso widget stateful Home criado logo abaixo
+      home: Home())); //Aqui em home passamos o nosso widget stateful Home, criado logo abaixo
 }
 
 class Home extends StatefulWidget {
-  //Com um widget Statufu é possível modificar valores na tela, ou seja, modificar um widget text por exemplo
+  //Com um widget Statuful é possível modificar valores na tela, ou seja, modificar um widget text por exemplo
   @override
   _HomeState createState() => _HomeState();
 }
@@ -23,24 +23,31 @@ class _HomeState extends State<Home> {
   String _infoText = "Pode Entrar!";
 
   void _changePeople(int delta) {
-    /* Esta função steState é responsável para avisar ao Flutter que
-      ele precisa atualizar os dados da tela. Ou seja, informar que o estado da tela foi modificado*/
+
+    /* Esta função setState é responsável para avisar ao Flutter que
+      ele precisa atualizar os dados da tela, ou seja, informar que o estado da tela foi modificado */
     setState(() {
       _people += delta;
 
-      if(_people < 0) {
+
+      if(_people < -10) {
+        _infoText = "Tá bom, vamos para por aqui. Ok?";
+        _people -= delta;
+      } else if(_people < 0) {
         _infoText = "Mundo invertido?!";
       } else if(_people <= 10) {
         _infoText = "Pode Entrar!";
       } else {
-        _infoText = "Lotado!";
+        _infoText = "Ops, está lotado!";
+        _people -= delta;
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    /*Esta função build é chamada sempre que for modificar alguma coisa no nosso layout.
+
+    /* Esta função build é chamada sempre que for modificar alguma coisa no nosso layout.
     Por esse motivo recortamos tudo o conteúdo de Stack que estava em home e colamos aqui no return. */
     return Stack(
       children: <Widget>[
